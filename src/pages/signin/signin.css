@@ -1,0 +1,17 @@
+.signin {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.signin form {
+    width: 50%;
+}
+
+.signin form > * {
+    margin-bottom: 5px;
+}

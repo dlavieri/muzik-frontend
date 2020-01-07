@@ -1,0 +1,126 @@
+.app-footer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    background: linear-gradient(#f0f0f0, #fff, #fff, #f0f0f0)
+}
+
+
+.footer-controls {
+    display: flex;
+    color: #1d1c1c;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+    max-width: 600px;
+    font-size: 0.8em;
+}
+
+.footer-controls i {
+    cursor: pointer;
+    transform: scale(1);
+    transition: all 300ms ease-in;
+}
+.footer-controls i:hover {
+    transform: scale(1.2);
+}
+
+.footer-controls .fa-play {
+    margin-left: 3px;
+}
+
+.footer-playbtn__border {
+    width: 35px;
+    height: 35px;
+    border: 1px #1d1c1c solid;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 300ms ease-in;
+}
+.footer-playbtn__border:hover {
+    transform: scale(1.2);
+}
+
+.footer-timeline {
+    width: 80%;
+    height: 5px;
+    background: #c0c0c0;
+    border-radius: 5px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.footer-timeline__progress {
+    width: 1px;
+    height: 5px;
+    background: linear-gradient(-15deg, #ff6482, #da8fff, #70f7ff);
+    border-radius: 5px;
+}
+
+#handle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 200;
+    margin-left: 0;
+}
+
+@media only screen and (max-height: 700px) {
+    .app-footer {
+        font-size: 0.8em;
+        justify-content: flex-start;
+    }
+
+    .footer-timeline {
+        margin-top: 5px;
+    }
+
+    .footer-controls {
+        margin-top: 8px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+    .footer-timeline {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        margin-top: 0;
+    }
+
+    .footer-timeline__progress {
+        width: 1px;
+        height: 5px;
+        background: linear-gradient(-15deg, #ff6482, #da8fff, #70f7ff);
+        border-radius: 5px;
+    }
+
+    .footer-controls {
+        height: 60px;
+    }
+    
+    .footer-controls i {
+        cursor: pointer;
+        font-size: 1.5em;
+    }
+    .footer-playbtn__border {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    .footer-controls .fa-play {
+        margin-left: 6px;
+    }
+}

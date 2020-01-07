@@ -1,0 +1,16 @@
+.__lovebtn {
+    background-image: url('https://miro.medium.com/max/2900/1*MTZW1G1mE7LSX1CnhTYeHA.png');
+    background-position: left;
+    background-size: 2900%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    transition: background-position 1s;
+    transition-timing-function: steps(28);
+    margin: -15px -10px -15px 5px;
+}
+
+.__lovebtn.__loved-active {
+    background-position: right;
+}

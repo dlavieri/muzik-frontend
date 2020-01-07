@@ -1,0 +1,15 @@
+.song__playbtn {
+    font-size: .6em;
+    line-height: 100%;
+    margin-left: 2px;
+}
+
+.playbtn__div {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px #000 solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

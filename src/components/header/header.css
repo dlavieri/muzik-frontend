@@ -1,0 +1,15 @@
+.app-header {
+    height: 50px;
+    background: linear-gradient(#292929, rgb(24, 24, 24));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    width: 100%;
+}
+
+.app-header div {
+    max-width: 200px;
+    margin-right: 5%;
+    margin-left: 2%;
+}

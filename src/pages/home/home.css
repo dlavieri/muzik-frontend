@@ -1,0 +1,24 @@
+.homepage {
+    color: #fff;
+    height: 100%;
+}
+
+.homepage .moods-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+@media only screen and (max-width: 500px) {
+    .homepage {
+        padding-left: 5%;
+    }
+
+    .homepage .moods-wrapper {
+        justify-content: space-evenly;
+        padding-bottom: 40px;
+    }
+}

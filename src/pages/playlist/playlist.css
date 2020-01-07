@@ -1,0 +1,15 @@
+.playlist {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.playlist h4 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+}  
+.playlist h4::first-letter {
+    text-transform: uppercase;
+}
