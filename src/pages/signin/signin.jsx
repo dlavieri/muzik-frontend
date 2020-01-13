@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { login } from '../../redux/actions/auth-actions';
+import apiPath from '../../App';
 
 class SigninPage extends Component {
 
@@ -25,7 +26,7 @@ class SigninPage extends Component {
         e.preventDefault();
         const { email, password } = this.state;
         
-        axios.post('http://localhost:8080/login', {email, password})
+        axios.post(`https://desolate-shore-33045.herokuapp.com/login`, {email, password})
         .then(res => {
             if (res.status === 200) {
                 this.props.login(res.data.user, res.data.token);

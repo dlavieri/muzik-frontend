@@ -13,7 +13,7 @@ const LoveBtn = (props) => {
         if(active) {
             return null
         }
-        axios.post(`http://localhost:8080/love-song/${songid}`, 
+        axios.post(`https://desolate-shore-33045.herokuapp.com/love-song/${songid}`, 
             {playlist: "Liked Tracks", headers: {Authorization: "Bearer: " + token}})
         .then();
 

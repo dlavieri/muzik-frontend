@@ -23,7 +23,7 @@ class UploadPage extends Component {
         const { mp3, mp3Path, songName, mood } = this.state;
         console.log("submitting");
 
-        axios.post('http://localhost:8080/add-music', {mp3, mp3Path, songName, mood})
+        axios.post(`https://desolate-shore-33045.herokuapp.com/add-music`, {mp3, mp3Path, songName, mood})
         .then(res => {
             this.setState({
                 mp3: null,

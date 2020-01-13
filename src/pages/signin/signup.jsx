@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './signin.css';
 import axios from 'axios';
+import apiPath from '../../App';
 
 class SignupPage extends Component {
 
@@ -38,7 +39,7 @@ class SignupPage extends Component {
             return null;
         }
 
-        axios.put('http://localhost:8080/new-user', {email, password})
+        axios.put(`https://desolate-shore-33045.herokuapp.com/new-user`, {email, password})
         .then(res => {
             if (res.status === 200) {
                 this.props.history.push("/")

@@ -15,6 +15,8 @@ import DropdownMenu from './components/navbar/dropdown-nav';
 import Footer from './components/footer/footer';
 import Header from './components/header/header';
 
+export const apiPath = "https://desolate-shore-33045.herokuapp.com";
+
 
 const PrivateRoute = ({ page: Page, isLoggedIn, ...rest}) => (
     <Route {...rest} render={props => (isLoggedIn ? <Page {...props}/> : <Redirect to="/" />)} />
