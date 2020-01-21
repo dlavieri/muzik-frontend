@@ -41,7 +41,7 @@ class SignupPage extends Component {
             return null; 
         }
 
-        axios.put(`https://desolate-shore-33045.herokuapp.com/new-user`, {email, password})
+        axios.post(`https://desolate-shore-33045.herokuapp.com/new-user`, {email, password})
         .then(res => {
             if (res.status === 200) {
                 console.log('adding user')
