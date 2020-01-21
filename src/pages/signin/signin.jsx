@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { login } from '../../redux/actions/auth-actions';
-import apiPath from '../../App';
 
 class SigninPage extends Component {
 

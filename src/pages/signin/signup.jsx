@@ -44,6 +44,11 @@ class SignupPage extends Component {
         axios.put(`https://desolate-shore-33045.herokuapp.com/new-user`, {email, password})
         .then(res => {
             if (res.status === 200) {
+                axios.post(`https://desolate-shore-33045.herokuapp.com/login`, {email, password})
+            }
+        })
+        .then(res => {
+            if (res.status === 200) {
                 this.props.login(res.data.user, res.data.token);
             }
         })
