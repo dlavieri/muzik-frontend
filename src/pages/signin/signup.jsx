@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './signin.css';
 import axios from 'axios';
-import apiPath from '../../App';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { login } from '../../redux/actions/auth-actions';
 
 class SignupPage extends Component {
 
@@ -36,14 +38,17 @@ class SignupPage extends Component {
         e.preventDefault();
         const { email, password, passMatch } = this.state;
         if (!passMatch) {
-            return null;
+            return null; 
         }
 
         axios.put(`https://desolate-shore-33045.herokuapp.com/new-user`, {email, password})
         .then(res => {
             if (res.status === 200) {
-                this.props.history.push("/")
-            };
+                this.props.login(res.data.user, res.data.token);
+            }
+        })
+        .then(res => {
+            this.props.history.push("/home")
         })
         .catch(err => console.log(err));
     }
@@ -77,4 +82,9 @@ class SignupPage extends Component {
     }
 }
 
-export default SignupPage;
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    login: login
+}, dispatch);
+
+export default connect(null, mapDispatchToProps)(SignupPage);
