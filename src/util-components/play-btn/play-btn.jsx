@@ -8,13 +8,9 @@ import { playSong } from '../../redux/actions/actions';
 const PlayBtn = (props) => {
     const { songData, playSong } = props;
 
-    function dispatchPlay() {
-        return playSong(songData)
-    }
-
     return (
         <div className="playbtn__div">
-            <i className="fas fa-play song__playbtn" onClick={dispatchPlay}></i>
+            <i className="fas fa-play song__playbtn" onClick={() => playSong(songData)}></i>
         </div>
     )
 }

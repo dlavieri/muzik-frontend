@@ -6,8 +6,9 @@ import { LOGIN } from './actions/auth-actions';
 import { TOGGLE_MENU } from './actions/actions';
 
 const initialState = {
-    isLoggedIn: false,
-    user: null,
+    // change back to false & null
+    isLoggedIn: true,
+    user: "User",
     token: null,
     menuOpen: false,
 
