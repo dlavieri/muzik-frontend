@@ -6,9 +6,8 @@ import { LOGIN } from './actions/auth-actions';
 import { TOGGLE_MENU } from './actions/actions';
 
 const initialState = {
-    // change back to false & null
-    isLoggedIn: true,
-    user: "User",
+    isLoggedIn: false,
+    user: null,
     token: null,
     menuOpen: false,
 
@@ -33,7 +32,7 @@ const rootReducer = (state = initialState, action) => {
         case LOGIN:
             return {
                 ...state,
-                isLoggedIn: false,
+                isLoggedIn: true,
                 token: action.token,
                 user: action.user
             };
