@@ -19,6 +19,10 @@
   margin: 0;
 }
 
+.app-main-row.__notLoggedIn {
+  height: 100vh;
+}
+
 .app-footer-row {
   height: 11vh;
 }

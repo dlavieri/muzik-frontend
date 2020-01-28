@@ -31,7 +31,7 @@ function App(props) {
           <Col xs={2} className={props.isLoggedIn ? "app-nav-col" : "app-nav-col __notLoggedIn"}>
             <NavBar isLoggedIn={props.isLoggedIn} user={props.user}/>
           </Col>
-          <Col fluid={"true"} className="app-main-col">
+          <Col fluid={"true"} className={isLoggedIn ? "app-main-col" : "app-main-col __notLoggedIn"}>
             <Header user={props.user}/>
             <DropdownMenu user={props.user} menuOpen={props.menuOpen}/>
             <Route exact path="/" component={SigninPage} />
