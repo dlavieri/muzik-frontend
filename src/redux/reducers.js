@@ -31,10 +31,9 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
     switch(action.type) {
         case LOGIN:
-            console.log("logging in")
             return {
                 ...state,
-                isLoggedIn: true,
+                isLoggedIn: false,
                 token: action.token,
                 user: action.user
             };

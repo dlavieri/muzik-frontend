@@ -23,6 +23,10 @@
   height: 11vh;
 }
 
+.app-footer-row.__notLoggedIn {
+  display: none;
+}
+
 .app-nav-col {
   padding: 0;
   min-width: 200px;

@@ -43,7 +43,7 @@ function App(props) {
           </Col>
         </Row>
 
-        <Row className="app-footer-row">
+        <Row className={props.isLoggedIn ? "app-footer-row" : "app-footer-row __notLoggedIn"}>
           <Footer/>
         </Row>
       </div>
