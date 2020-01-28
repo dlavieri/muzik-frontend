@@ -27,11 +27,11 @@ function App(props) {
   return (
     <Router>
       <div className="app-router-div">
-        <Row className="app-main-row">
+        <Row className={props.isLoggedIn ? "app-main-row" : "app-main-row __notLoggedIn"}>
           <Col xs={2} className={props.isLoggedIn ? "app-nav-col" : "app-nav-col __notLoggedIn"}>
             <NavBar isLoggedIn={props.isLoggedIn} user={props.user}/>
           </Col>
-          <Col fluid={"true"} className={isLoggedIn ? "app-main-col" : "app-main-col __notLoggedIn"}>
+          <Col fluid={"true"} className="app-main-col">
             <Header user={props.user}/>
             <DropdownMenu user={props.user} menuOpen={props.menuOpen}/>
             <Route exact path="/" component={SigninPage} />
