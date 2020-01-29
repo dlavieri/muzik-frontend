@@ -44,15 +44,16 @@ class SignupPage extends Component {
         axios.post(`https://desolate-shore-33045.herokuapp.com/new-user`, {email, password})
         .then(res => {
             if (res.status === 200) {
-                axios.post(`https://desolate-shore-33045.herokuapp.com/login`, {email, password})
+                return axios.post(`https://desolate-shore-33045.herokuapp.com/login`, {email, password})
             }
-        })
+        }) 
         .then(res => {
             if (res.status === 200) {
                 this.props.login(res.data.user, res.data.token);
             }
         })
-        .then(res => {
+        .then(() => {
+            console.log("forwarding home")
             this.props.history.push("/home")
         })
         .catch(err => console.log(err));
