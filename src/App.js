@@ -9,6 +9,7 @@ import PlaylistPage from './pages/playlist/playlist';
 import SigninPage from './pages/signin/signin';
 import SignupPage from './pages/signin/signup';
 import UploadPage from './pages/upload/upload';
+import UserPage from './pages/profile/profile';
 
 import NavBar from './components/navbar/navbar';
 import DropdownMenu from './components/navbar/dropdown-nav';
@@ -36,6 +37,7 @@ function App(props) {
             <DropdownMenu user={props.user} menuOpen={props.menuOpen}/>
             <Route exact path="/" component={SigninPage} />
             <Route path="/signup" component={SignupPage} />
+            <PrivateRoute path="/user/:userid" page={UserPage} isLoggedIn={props.isLoggedIn} />
             <PrivateRoute path="/home" page={HomePage} isLoggedIn={props.isLoggedIn} />
             <PrivateRoute path="/moods/:moodid" page={PlaylistPage} isLoggedIn={props.isLoggedIn} />
             <PrivateRoute path="/playlists/:playlistid" page={PlaylistPage} isLoggedIn={props.isLoggedIn} />

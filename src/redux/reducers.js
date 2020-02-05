@@ -1,15 +1,18 @@
 import { FETCH_MOODS_PENDING, FETCH_MOODS_SUCCESS, FETCH_MOODS_ERROR } from './actions/actions';
 import { FETCH_MOOD_PENDING, FETCH_MOOD_SUCCESS,  FETCH_MOOD_ERROR } from './actions/actions';
+import { FETCH_USER_PENDING, FETCH_USER_SUCCESS,  FETCH_USER_ERROR } from './actions/actions';
 import { FETCH_PLAYLIST_PENDING, FETCH_PLAYLIST_SUCCESS, FETCH_PLAYLIST_ERROR } from './actions/actions';
 import { PLAY_SONG, RESUME_SONG, PAUSE_SONG } from './actions/actions';
-import { LOGIN } from './actions/auth-actions';
+import { LOGIN, LOGOUT } from './actions/auth-actions';
 import { TOGGLE_MENU } from './actions/actions';
 
 const initialState = {
     isLoggedIn: false,
     user: null,
+    userData: null,
     token: null,
     menuOpen: false,
+    userFetching: false,
 
     moodsFetching: false,
     moods: [],
@@ -18,6 +21,7 @@ const initialState = {
     playlistFetching: false,
     currentPlaylist: null,
     songs: [],
+    playQueue: [],
 
     isPlaying: false,
     songDetails: null,
@@ -35,6 +39,13 @@ const rootReducer = (state = initialState, action) => {
                 isLoggedIn: true,
                 token: action.token,
                 user: action.user
+            };
+        case LOGOUT:
+            return {
+                ...state,
+                isLoggedIn: false,
+                token: null,
+                user: null
             };
         case TOGGLE_MENU:
             return {
@@ -102,6 +113,7 @@ const rootReducer = (state = initialState, action) => {
                 pauseBtn: true,
                 playBtn: false,
                 resumeBtn: false,
+                pausedTime: 0,
             }
         case PAUSE_SONG:
             return {
@@ -119,6 +131,23 @@ const rootReducer = (state = initialState, action) => {
                 pauseBtn: true,
                 playBtn: false,
                 resumeBtn: false,
+            }
+        case FETCH_USER_PENDING:
+            return {
+                ...state,
+                userFetching: true,
+            }
+        case FETCH_USER_SUCCESS:
+            return {
+                ...state,
+                userFetching: false,
+                userData: action.userData,
+            }
+        case FETCH_USER_ERROR:
+            return {
+                ...state,
+                userFetching: false,
+                error: action.error,
             }
         default:
             return {

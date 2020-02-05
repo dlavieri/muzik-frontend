@@ -13,3 +13,7 @@
     margin-right: 5%;
     margin-left: 2%;
 }
+
+.logout-link {
+    cursor: pointer;
+}

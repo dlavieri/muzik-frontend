@@ -7,6 +7,7 @@ import fetchPlaylist from '../../redux/actions/fetchPlaylist';
 
 import SongList from '../../components/songlist/songlist';
 import Container from '../../components/container/container';
+import LoadingAnimation from '../../util-components/load-animation/loading';
 
 class PlaylistPage extends Component {
 
@@ -27,12 +28,17 @@ class PlaylistPage extends Component {
     }
 
     render() {
-        const { currentPlaylist, songs } = this.props;
+        const { currentPlaylist, songs, playlistFetching } = this.props;
         return (
             <Container>
                 <div className="playlist">
-                    <h4>{currentPlaylist}</h4>
-                    <SongList songs={songs} />
+                    {playlistFetching ? 
+                        <LoadingAnimation /> :
+                        <div>
+                            <h4>{currentPlaylist}</h4>
+                            <SongList songs={songs} />
+                        </div>
+                    }
                 </div>
             </Container>
         )
@@ -43,7 +49,8 @@ const mapStateToProps = state => {
     return {
         currentPlaylist: state.currentPlaylist,
         songs: state.songs,
-        token: state.token
+        token: state.token,
+        playlistFetching: state.playlistFetching
     }
 }
 

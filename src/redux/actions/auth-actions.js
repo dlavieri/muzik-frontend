@@ -8,3 +8,13 @@ export function login(user, token) {
         token: token
     }
 };
+
+// LOGOUT
+
+export const LOGOUT = "LOGOUT";
+
+export function logout() {
+    return {
+        type: LOGOUT
+    }
+};

@@ -12,7 +12,7 @@ const Songlist = (props) => {
     const handlePlaySong = event => {
         const { songId } = event.currentTarget.dataset;
         const song = props.songs.find(song => song._id === parseInt(songId, 10));
-        console.log(song);
+        props.playSong(song);
     };
 
     return (

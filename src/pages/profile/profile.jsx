@@ -1,24 +1,43 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import './profile.css';
 
-class UserProfile extends Component {
+import Container from '../../components/container/container';
+
+class UserPage extends Component {
+
 
     render() {
+        const { user } = this.props;
         return (
-            <div/>
+            <Container>
+                <div className="profile">
+                    <h4>My Profile</h4>
+                    <h5>{user}</h5>
+                    <br/>
+                    <form className="form-group">
+                        <label name="name">Name</label>
+                        <input for="name" id="nameInput" className="form-control"></input>
+                        <label name="location">Location</label>
+                        <input for="location" id="locationInput" className="form-control"></input>
+                        <br/>
+                        <button className="btn btn-light" type="submit">Update User Info</button>
+                    </form>
+                </div>
+            </Container>
         )
     }
 }
 
-mapStateToProps = state => {
+const mapStateToProps = state => {
     return {
         user: state.user,
     }
 };
 
-mapDispatchToProps = dispatch => bindActionCreators({
+const mapDispatchToProps = dispatch => bindActionCreators({
 
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(UserPage);

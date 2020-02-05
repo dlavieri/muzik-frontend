@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './upload.css';
 import axios from 'axios';
+import firebase from '../../storage/firebase';
 
 
 class UploadPage extends Component {
@@ -20,10 +21,24 @@ class UploadPage extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const { mp3, mp3Path, songName, mood } = this.state;
-        console.log("submitting");
-
-        axios.post(`https://desolate-shore-33045.herokuapp.com/add-music`, {mp3, mp3Path, songName, mood})
+        const { songName, mood } = this.state;
+        let mp3Path;
+        let file = document.getElementById("mp3FormInput").files[0];
+        let fbRef = firebase.storage().ref(file.name);
+    
+        fbRef.put(file)
+        .then(() => {
+            const storageRef = firebase.storage().ref();
+            return storageRef.child(file.name).getMetadata();
+        })
+        .then(metadata => {
+            let url = metadata.downloadURLs[0];
+            console.log(url);
+            mp3Path = url;
+        })
+        .then(() => {
+            axios.post(`https://desolate-shore-33045.herokuapp.com/add-music`, { mp3Path, songName, mood });
+        })
         .then(res => {
             this.setState({
                 mp3: null,
@@ -36,8 +51,9 @@ class UploadPage extends Component {
     }
 
 
+
     render() {
-        const { mp3, mp3Path, songName, mood } = this.state;
+        const { mp3, mp3Path, songName } = this.state;
     return (
         <div className="upload-page">
             <h5>Add a new song</h5>
