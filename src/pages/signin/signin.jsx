@@ -6,11 +6,14 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { login } from '../../redux/actions/auth-actions';
 
+import PassToggler from '../../util-components/pass-view-toggle/pass-toggler';
+
 class SigninPage extends Component {
 
     state = {
         email: null,
         password: null,
+        error: false,
     }
 
     handleInputs = (e) => {
@@ -29,6 +32,10 @@ class SigninPage extends Component {
         .then(res => {
             if (res.status === 200) {
                 this.props.login(res.data.user, res.data.token);
+            } else if (res.status != 200) {
+                this.setState({
+                    error: true
+                })
             }
         })
         .then(() => {
@@ -38,6 +45,8 @@ class SigninPage extends Component {
     }
 
     render() {
+        const { error } = this.state;
+
         return (
             <div className="signin">
                 <h4>Please sign in</h4>
@@ -47,15 +56,17 @@ class SigninPage extends Component {
                         type="email" 
                         placeholder="Enter Email" 
                         onChange={this.handleInputs}
-                        onBlur={this.handleInputs}></input>
+                        onBlur={this.handleInputs} />
                     <input className="form-control" 
                         name="password" 
                         type="password" 
                         placeholder="Password" 
+                        id="loginPassInput"
                         onChange={this.handleInputs}
-                        onBlur={this.handleInputs}></input>
-                    
-                    <button className="btn btn-light" onClick={this.postLogin}>Login</button>
+                        onBlur={this.handleInputs} />
+
+                    <p className={!error ? "input-caption hidden" :"input-caption"}>Incorrect email or password.</p>
+                    <button className="btn btn-primary" onClick={this.postLogin}>Login</button>
                     <Link to="/signup"><p>I don't have an account yet</p></Link>
                 </form>
 

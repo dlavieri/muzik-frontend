@@ -1,7 +1,6 @@
 import React from 'react';
 import './navbar.css';
 import { Link } from 'react-router-dom';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const Menu = (props) => {
     return (

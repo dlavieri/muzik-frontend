@@ -1,6 +1,5 @@
 import { fetchMoodPending, fetchMoodSuccess, fetchMoodError } from './actions';
 import axios from 'axios';
-import apiPath from '../../App';
 
 function fetchMood(moodId, token) {
     return dispatch => {

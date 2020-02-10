@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './songlist.css';
 import { connect } from 'react-redux';
 import { playSong } from '../../redux/actions/actions';

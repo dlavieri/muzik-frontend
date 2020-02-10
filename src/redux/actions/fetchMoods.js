@@ -1,6 +1,5 @@
 import { fetchMoodsPending, fetchMoodsSuccess, fetchMoodsError } from './actions';
 import axios from 'axios';
-import apiPath from '../../App';
 
 function fetchMoods(token) {
     return dispatch => {

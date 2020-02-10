@@ -12,6 +12,25 @@
     width: 50%;
 }
 
-.signin form > * {
-    margin-bottom: 5px;
+.signin form > input {
+    margin: 10px 0 5px 0;
+}
+
+.input-caption {
+    font-size: 0.85em;
+    margin-bottom: 3px;
+    line-height: 0.8em;
+    transition: all 500ms ease-out;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.input-caption.hidden {
+    transform: translateY(-10px);
+    opacity: 0;
+    line-height: 0;
+}
+
+.signin form > button {
+    margin-top: 15px;
 }

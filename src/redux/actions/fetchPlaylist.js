@@ -1,6 +1,5 @@
 import { fetchPlaylistPending, fetchPlaylistSuccess, fetchPlaylistError } from './actions';
 import axios from 'axios';
-import apiPath from '../../App';
 
 function fetchPlaylist(playlistName, token) {
     return dispatch => {
