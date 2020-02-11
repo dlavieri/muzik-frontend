@@ -26,7 +26,10 @@ class UploadPage extends Component {
         let file = document.getElementById("mp3FormInput").files[0];
         let storageRef = firebase.storage().ref();
         
-        console.log(file);
+        if (file.type != "audio/mp3") {
+            return;
+        }
+
         storageRef.child(file.name).put(file)
         .then(snapshot => {
             return snapshot.ref.getDownloadURL();
@@ -36,7 +39,6 @@ class UploadPage extends Component {
             return mp3Path;
         })
         .then(() => {
-            console.log('sending to API');
             axios.post(`https://desolate-shore-33045.herokuapp.com/add-music`, { mp3Path, songName, mood });
         })
         .then(res => {

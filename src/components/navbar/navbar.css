@@ -29,11 +29,28 @@
     margin-bottom: 5%;
     color: #1d1d1d;
     cursor: pointer;
-    transition: all 600ms ease-in;
+    transition: all 400ms ease-in;
 }
 
 .navbar-ul li:hover {
     background: #f3f3f3;
+}
+
+.navbar-ul .add-music-btn:hover{
+    background: #b0354d;
+}
+
+li.add-music-btn {
+    padding: 0.5em 2em;
+    width: 100%;
+    background: #ff6482;
+    color: #1d1d1d;
+    cursor: pointer;
+    transition: all 600ms ease-in;
+}
+li.add-music-btn > a {
+    color: #fff;
+    font-weight: bold;
 }
 
 

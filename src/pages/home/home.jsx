@@ -31,6 +31,7 @@ class HomePage extends Component {
                             name={mood.name}
                             img={mood.img}/>
                         })}
+                        <br/>
                     </div>
                 </div>
             </Container>

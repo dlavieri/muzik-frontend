@@ -41,7 +41,7 @@ function App(props) {
             <PrivateRoute path="/home" page={HomePage} isLoggedIn={props.isLoggedIn} />
             <PrivateRoute path="/moods/:moodid" page={PlaylistPage} isLoggedIn={props.isLoggedIn} />
             <PrivateRoute path="/playlists/:playlistid" page={PlaylistPage} isLoggedIn={props.isLoggedIn} />
-            <Route path="/admin/add-music" component={UploadPage}/>
+            <PrivateRoute path="/admin/add-music" isLoggedIn={props.isLoggedIn} page={UploadPage}/>
           </Col>
         </Row>
 

@@ -4,7 +4,6 @@ import axios from 'axios';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { login } from '../../redux/actions/auth-actions';
-import { floralwhite } from 'color-name';
 
 class SignupPage extends Component {
 
