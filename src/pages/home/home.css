@@ -10,6 +10,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-bottom: 100px;
 }
 
 @media only screen and (max-width: 500px) {
