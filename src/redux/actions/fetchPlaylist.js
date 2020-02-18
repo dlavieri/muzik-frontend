@@ -1,10 +1,11 @@
 import { fetchPlaylistPending, fetchPlaylistSuccess, fetchPlaylistError } from './actions';
 import axios from 'axios';
+import { apiPath } from '../../env';
 
 function fetchPlaylist(playlistName, token) {
     return dispatch => {
         dispatch(fetchPlaylistPending());
-        axios.get(`https://desolate-shore-33045.herokuapp.com/playlists/${playlistName}`, 
+        axios.get(apiPath + "playlists/" + playlistName, 
             { headers: {Authorization: "Bearer: " + token} })
         .then(res => {
             if (res.error) {

@@ -1,10 +1,11 @@
 import { fetchMoodsPending, fetchMoodsSuccess, fetchMoodsError } from './actions';
 import axios from 'axios';
+import { apiPath } from '../../env';
 
 function fetchMoods(token) {
     return dispatch => {
         dispatch(fetchMoodsPending());
-        axios.get(`https://desolate-shore-33045.herokuapp.com/get-home-moods`, 
+        axios.get(apiPath + "get-home-moods", 
             { headers: {Authorization: "Bearer: " + token} })
         .then(res => {
             if (res.error) {
