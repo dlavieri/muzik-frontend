@@ -6,7 +6,7 @@ import { PLAY_SONG, RESUME_SONG, PAUSE_SONG } from './actions/actions';
 import { LOGIN, LOGOUT } from './actions/auth-actions';
 import { TOGGLE_MENU } from './actions/actions';
 
-const initialState = {
+export const initialState = {
     isLoggedIn: false,
     user: null,
     userData: null,

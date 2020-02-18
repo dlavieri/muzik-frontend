@@ -5,7 +5,7 @@ import { apiPath } from '../../env';
 function fetchMoods(token) {
     return dispatch => {
         dispatch(fetchMoodsPending());
-        axios.get(apiPath + "get-home-moods", 
+        return axios.get(apiPath + "get-home-moods", 
             { headers: {Authorization: "Bearer: " + token} })
         .then(res => {
             if (res.error) {

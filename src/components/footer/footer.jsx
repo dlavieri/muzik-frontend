@@ -118,5 +118,5 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     resumeSong: resumeSong
   }, dispatch)
   
-
-  export default connect(mapStateToProps, mapDispatchToProps)(Footer);
+export { Footer };
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

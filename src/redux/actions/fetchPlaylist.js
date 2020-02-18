@@ -5,7 +5,7 @@ import { apiPath } from '../../env';
 function fetchPlaylist(playlistName, token) {
     return dispatch => {
         dispatch(fetchPlaylistPending());
-        axios.get(apiPath + "playlists/" + playlistName, 
+        return axios.get(apiPath + "playlists/" + playlistName, 
             { headers: {Authorization: "Bearer: " + token} })
         .then(res => {
             if (res.error) {
